@@ -1,10 +1,13 @@
-import torch
+#import torch
 import time
 import numpy as np
 from model.model import parsingNet
 
 # torch.backends.cudnn.deterministic = False
+import torch
 
+device = torch.device('cpu')
+# Example: model = MyModel().to(device)
 torch.backends.cudnn.benchmark = True
 net = parsingNet(pretrained = False, backbone='18',cls_dim = (100+1,56,4),use_aux=False).cuda()
 # net = parsingNet(pretrained = False, backbone='18',cls_dim = (200+1,18,4),use_aux=False).cuda()
